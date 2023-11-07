@@ -1,20 +1,25 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        int[] array1 = {45, 20, 300, 4, 88};
-        int[] array2 = {50, 41, 600, 12};
-        System.out.println(allLess(array1, array2));
+        int[] one ={8};
+        int[] two ={14, 7};
+        int[] thre ={7, 1, 3, 2, 0, 4};
+        int[] four={10, 8, 9, 5, 5};
+        int[] give={12, 11, 10, 10, 8, 7};
+        arrayMystery4(one);
+        arrayMystery4(two);
+        arrayMystery4(thre);
+        arrayMystery4(four);
+        arrayMystery4(give);
     }
 
-    public static boolean allLess(int[] array1, int[] array2) {
-        boolean thing = true;
-        for (int i = 0; i < array1.length; i++) {
-            if ((array2[i] > array1[i] && array1.length == array2.length && thing)) {
-                thing = true;
-            } else {
-                thing = false;
+    public static void arrayMystery4(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] > nums[i + 1]) {
+                nums[i + 1]++;
             }
         }
-        return thing;
+        System.out.println(Arrays.toString(nums));
     }
 }
