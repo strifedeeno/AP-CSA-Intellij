@@ -1,3 +1,4 @@
+package project5_06_hotelProject;
 
 import java.util.*;
 

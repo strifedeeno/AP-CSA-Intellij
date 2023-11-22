@@ -1,3 +1,4 @@
+package project5_06_hotelProject;
 
 public class Reservation {
   private String guestName;

@@ -1,5 +1,6 @@
+package project5_06_hotelProject;
 
-public class Main {
+public class hotelMain {
 
 	public static void main(String[] args) {
 		Hotel hilton = new Hotel("Hilton", 5);
