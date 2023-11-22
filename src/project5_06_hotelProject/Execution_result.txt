@@ -1,0 +1,16 @@
+
+[0:Cathy][1:Tom][2:Amy][3:Gary][4:null]
+Total guest: 4
+
+After removing Amy
+[0:Cathy][1:Tom][2:null][3:Gary][4:null]
+
+After adding four more
+[0:Cathy][1:Tom][2:Frank][3:Gary][4:Jim]
+Total guest: 7
+how many are waiting: 2
+
+After removing Frank
+[0:Cathy][1:Tom][2:Danny][3:Gary][4:Jim]
+Total guest: 6
+how many are waiting: 1
