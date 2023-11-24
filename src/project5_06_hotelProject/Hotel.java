@@ -23,14 +23,16 @@ public class Hotel {
 		// then create a reservation for an empty room for the specified guest and return the new Reservation;
 		// otherwise, add the guest to the end of waitlist and return null.
 
-		// Todo: add a static variable, totalGuests, to keep track 
+		// Todo: add a static variable, totalGuests, to keep track
+		public static int totalGuests;
 		// how many guests request rooms so far.
 		
 		
 		//Todo: given a hotel name and total number of rooms 
 	        //      implement a constructor.
 		public Hotel(String hName, int nRooms) {
-			// Your code is here.
+			hotelName=hName;
+			totalRooms=nRooms;
 		}
 		
 		/* Todo: implement this method.
@@ -43,9 +45,9 @@ public class Hotel {
 		 * And, in either case, the static variable totalGuests is 
 		 * increased by one. 
                 */
-		public Reservation requestRoom(String guestName)
-		{  
-		    // Your code is here.
+		public Reservation requestRoom(String guestName) {
+			rooms = new Reservation[guestName];
+
 		}
 			
 		/* Todo: implement the following method.
