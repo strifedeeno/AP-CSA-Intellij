@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Student {
     private String name;
     private int studentID;
-    private double[] grades;  //an array with five elements: contain GPA
+    private final double[] grades;  //an array with five elements: contain GPA
     //for five courses in a year.
 
     //default constructor set name to "John Doe", initialize grades, and set ID to 0.

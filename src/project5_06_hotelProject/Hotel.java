@@ -4,9 +4,9 @@ import java.util.*;
 
 public class Hotel {
 	
-		private String hotelName;
+		private final String hotelName;
 		
-		private int totalRooms;		
+		private final int totalRooms;
 		// Each hotel has rooms numbered 0, 1, 2, . . . , 
 		// up to (totalRooms-1).
 		

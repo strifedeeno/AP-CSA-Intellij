@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class test {
-    public static void main(String args[]){
+    public static void main(String[] args){
         int[][] box= evenBox(5);
         for(int i =0; i<box.length;i++){
             System.out.println(Arrays.toString(box[i]));
