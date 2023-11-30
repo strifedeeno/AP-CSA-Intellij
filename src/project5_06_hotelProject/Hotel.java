@@ -10,7 +10,7 @@ public class Hotel {
 		// Each hotel has rooms numbered 0, 1, 2, . . . ,
 		// up to (totalRooms-1).
 
-		private reservation[] rooms;
+		private Reservation[ ] rooms;
 		// each element corresponds to a room in the hotel;
 		// if rooms[index] is null, the room is empty;
 		// otherwise, it contains a reference to the Reservathion
@@ -46,7 +46,7 @@ public class Hotel {
 		 * increased by one.
                 */
 		public Reservation requestRoom(String guestName) {
-			reservation[] = new String[totalGuests];
+			rooms = new Reservation[guestName];
 
 		}
 
