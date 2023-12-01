@@ -33,6 +33,7 @@ public class Hotel {
 		public Hotel(String hName, int nRooms) {
 			hotelName=hName;
 			totalRooms=nRooms;
+			rooms = new Reservation[totalRooms-1];
 		}
 
 		/* Todo: implement this method.
@@ -45,9 +46,16 @@ public class Hotel {
 		 * And, in either case, the static variable totalGuests is
 		 * increased by one.
                 */
-		public Reservation requestRoom(String guestName) {
-			rooms = new Reservation[guestName];
-
+		public Reservation requestRoom(String guestName){
+			for(int i=0;i<totalRooms;i++){
+				if(rooms[i].getGuestName()==null){
+					rooms[i]=new Reservation(guestName,i);
+					return rooms[i];
+				} else if (i==totalRooms-1 && rooms[i].getGuestName()==null) {
+					waitList.add(guestName);
+					return null;
+				}
+			}
 		}
 
 		/* Todo: implement the following method.
@@ -63,9 +71,8 @@ public class Hotel {
 		 * precondition: res is a valid Reservation for some room
 		 *               in this hotel.
 		 */
-		public Reservation cancelAndReassign(Reservation res)
-		{
-                   //Your code is here.
+		public Reservation cancelAndReassign(Reservation res){
+			
 		}
 
 		// Todo: implment the method that returns the number
