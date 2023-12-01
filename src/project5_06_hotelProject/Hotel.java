@@ -33,7 +33,7 @@ public class Hotel {
 		public Hotel(String hName, int nRooms) {
 			hotelName=hName;
 			totalRooms=nRooms;
-			rooms = new Reservation[totalRooms-1];
+			rooms = new Reservation[totalRooms];
 			waitList= new ArrayList<String>();
 		}
 
@@ -48,16 +48,19 @@ public class Hotel {
 		 * increased by one.
                 */
 		public Reservation requestRoom(String guestName){
+			boolean worked = false;
 			for(int i=0;i<rooms.length;i++){
 				if(rooms[i]==null){
 					totalGuests++;
 					rooms[i]=new Reservation(guestName,i);
+					worked= true;
 					return rooms[i];
-				} else if (i==totalRooms-1 && rooms[i].getGuestName()==null) {
-					waitList.add(guestName);
-					totalGuests++;
-					return null;
 				}
+			}
+			if (worked==false) {
+				waitList.add(guestName);
+				totalGuests++;
+				return null;
 			}
 			return null;
 		}
@@ -77,11 +80,12 @@ public class Hotel {
 		 */
 		public Reservation cancelAndReassign(Reservation res){
 			for(int i=0;i<rooms.length;i++){
-				if(rooms[i].equals(res) && !waitList.isEmpty() ){
+				if(rooms[i]==res && !waitList.isEmpty() ){
 					rooms[i]= new Reservation(waitList.get(0), i);
 					waitList.remove(0);
+					totalGuests--;
 					return rooms[i];
-				} else if (rooms[i].equals(res) && waitList.isEmpty()) {
+				} else if (rooms[i]==res && waitList.isEmpty()) {
 					rooms[i]=null;
 					totalGuests--;
 				}
@@ -101,11 +105,13 @@ public class Hotel {
 		// Reservation::toString() method.
 		public String toString() {
 			String x="";
-			for(int i=0;i<rooms.length;i++){
-				if(!rooms[i].equals(null)){
+			for(int i=0;i<totalRooms;i++){
+				if(rooms[i]!=null){
 					x+=rooms[i].toString();
 				}
-				else if()
+				else if(rooms[i]==null){
+					x+="[" + i + ":null]";
+				}
 			}
 			return  x;
 		}
