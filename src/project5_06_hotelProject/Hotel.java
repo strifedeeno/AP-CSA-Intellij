@@ -10,7 +10,7 @@ public class Hotel {
 		// Each hotel has rooms numbered 0, 1, 2, . . . ,
 		// up to (totalRooms-1).
 
-		private Reservation[ ] rooms;
+		private final Reservation[ ] rooms;
 		// each element corresponds to a room in the hotel;
 		// if rooms[index] is null, the room is empty;
 		// otherwise, it contains a reference to the Reservathion
@@ -34,6 +34,7 @@ public class Hotel {
 			hotelName=hName;
 			totalRooms=nRooms;
 			rooms = new Reservation[totalRooms-1];
+			waitList= new ArrayList<String>();
 		}
 
 		/* Todo: implement this method.
@@ -47,15 +48,17 @@ public class Hotel {
 		 * increased by one.
                 */
 		public Reservation requestRoom(String guestName){
-			for(int i=0;i<totalRooms;i++){
-				if(rooms[i].getGuestName()==null){
+			for(int i=0;i<rooms.length;i++){
+				if(rooms[i]==null){
 					rooms[i]=new Reservation(guestName,i);
 					return rooms[i];
+					totalGuests.set()
 				} else if (i==totalRooms-1 && rooms[i].getGuestName()==null) {
 					waitList.add(guestName);
 					return null;
 				}
 			}
+			return null;
 		}
 
 		/* Todo: implement the following method.
@@ -72,13 +75,23 @@ public class Hotel {
 		 *               in this hotel.
 		 */
 		public Reservation cancelAndReassign(Reservation res){
-			
+			for(int i=0;i<totalRooms;i++){
+				if(rooms[i].equals(res) && !waitList.isEmpty() ){
+					rooms[i]= new Reservation(waitList.get(0), i);
+					waitList.remove(0);
+					return rooms[i];
+				} else if (rooms[i].equals(res) && waitList.isEmpty()) {
+					rooms[i]=null;
+					totalGuests--;
+				}
+			}
+			return null;
 		}
 
 		// Todo: implment the method that returns the number
 		// of guests in the waiting list.
 		public int numWaitings() {
-			//Your code is here.
+			return waitList.size();
 		}
 
 		// Todo: this method is to return a string that describes the
@@ -86,7 +99,7 @@ public class Hotel {
 		// a string [roomNumber:null]. Otherwise, just reuse
 		// Reservation::toString() method.
 		public String toString() {
-                  // Your code is here.
+			return Arrays.deepToString(rooms);
 		}
 
 }

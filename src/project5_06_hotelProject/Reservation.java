@@ -1,8 +1,8 @@
 package project5_06_hotelProject;
 
 public class Reservation {
-  private String guestName;
-  private int roomNumber;
+  private final String guestName;
+  private final int roomNumber;
 
   //Todo: implement a constructor for class Reservation.
   //Parameter: name: guest name
