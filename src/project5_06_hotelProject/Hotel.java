@@ -17,7 +17,7 @@ public class Hotel {
 		// for that room, such that
 		// rooms[index].getRoomNumber() returns index.
 
-		private ArrayList<String> waitList;
+		private final ArrayList<String> waitList;
 		// A list that contains names of guests who have not yet been assigned a room because all rooms are full.
 		// If there are any empty rooms (rooms with no reservation),
 		// then create a reservation for an empty room for the specified guest and return the new Reservation;
@@ -57,7 +57,7 @@ public class Hotel {
 					return rooms[i];
 				}
 			}
-			if (worked==false) {
+			if (!worked) {
 				waitList.add(guestName);
 				totalGuests++;
 				return null;
