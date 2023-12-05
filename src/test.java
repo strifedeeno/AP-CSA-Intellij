@@ -2,22 +2,51 @@ import java.util.Arrays;
 
 public class test {
     public static void main(String[] args){
-        int[][] box= evenBox(5);
-        for(int i =0; i<box.length;i++){
-            System.out.println(Arrays.toString(box[i]));
-        }
+        double val = -0.7;
+
+        int roundedVal = (int) (val + 0.5);
+
+        System.out.println(roundedVal);
     }
-    public static int[][] evenBox(int num){
-        int[][] box= new int[num][num];
-        int count=0;
-        for(int i =0;i<box.length;i++){
-            for(int j =0;j< box[i].length;j++){
-                if(count%2==0){
-                    box[i][j]=count;
-                }
-                count++;
-            }
+    public static int mystery(boolean a, boolean b, boolean c)
+
+    {
+
+        int answer = 7;
+
+
+
+        if (!a)
+
+        {
+
+            answer += 1;
+
         }
-        return box;
+
+
+
+        if (b)
+
+        {
+
+            answer += 2;
+
+        }
+
+
+
+        if (c)
+
+        {
+
+            answer += 4;
+
+        }
+
+
+
+        return answer;
+
     }
 }
